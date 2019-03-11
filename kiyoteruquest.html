@@ -5,7 +5,6 @@
     <title>KiyoteruQuest</title>
 
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <meta name="description" content="A Hiyama Kiyoteru album for Open House 2019"/>
@@ -19,13 +18,31 @@
         background-size: contain;
         background-position: center;
       }
-      .time {
+      .desktop {
+        display: auto;
         position: absolute;
         top: 50%;
         left: 50%;
         height: 228px;
         width: 1073px;
         margin: -114px 0 0 -536px;
+      }
+      .mobile {
+        display: none;
+      }
+      @media screen and (max-width: 480px) {
+        .mobile {
+          display: auto;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          height: 71px;
+          width: 320px;
+          margin: -35px 0 0 -160px;
+        }
+        .desktop {
+          display: none;
+        }
       }
     </style>
   </head>
@@ -35,8 +52,11 @@
     </nav>
 
     <div class="bg">
-      <div class="time">
+      <div class="desktop">
         <iframe src="https://free.timeanddate.com/countdown/i6nxqy0e/n1952/cf12/cm0/cu4/ct0/cs1/ca0/co1/cr0/ss0/cacffd247/cpcffd247/pct/tcfff/fs100/szw1500/szh632/tatKiyoteruQuest%20releases%20in/tacffd247/tptKiyoteruQuest%20has%20released./tpcffd247/iso2019-04-10T00:00:00/pd2" allowTransparency="true" frameborder="0" width="1073" height="228"></iframe>
+      </div>
+      <div class="mobile">
+        <iframe src="https://free.timeanddate.com/countdown/i6o3gu6v/n145/cf12/cm0/cu4/ct0/cs1/ca0/co1/cr0/ss0/cacffd247/cpcffd247/pct/tcfff/fs100/szw448/szh189/tatKiyoteruQuest%20releases%20in/tacffd247/tptKiyoteruQuest%20has%20released./tpcffd247/iso2019-04-10T00:00:00" allowTransparency="true" frameborder="0" width="320" height="71"></iframe>
       </div>
     </div>
 

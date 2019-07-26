@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Average');
+
+body {
+  background-color: #f3f3f3;
+  color: #1E3F10;
+  font-family: Average, serif;
+  text-align: justify;
+  padding: 5vh 13vw;
+  font-size: 1em;
+}
+
+div#hd {
+	text-align: center;
+}
+
+h1 {
+	font-size: 2.5em;
+	font-weight: bold;
+}
+
+h2 {
+	font-size: 1.8em;
+	font-weight: bold;
+  text-align: center;
+}
+
+h3 {
+	font-size: 1.4em;
+	font-weight: bold;
+}
+
+hr {
+	border: 0;
+	width: 99%;
+	color: #1E3F10;
+	background-color: #1E3F10;
+	height: 2px;
+}
+
+p {
+  line-height: 1.5em;
+}
+
+p, ul, input, textarea, .optionLabel, .title, .dlButton {
+  font-family: Average, serif;
+  color: #1E3F10;
+}
+
+a {
+	text-decoration: none;
+	color: #4b7738;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+b {
+	font-weight: bold;
+}
+
+i {
+	text-decoration: underline;
+}
+
+li {
+	list-style-type: square;
+	text-indent: 1vw;
+	list-style-position: inside;
+  line-height: 1.5em;
+}

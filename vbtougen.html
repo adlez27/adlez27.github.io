@@ -1,0 +1,674 @@
+<!-- Last updated July 26, 2019 -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>UTAU Voicebank Terms of Use Generator</title>
+    <link href="./style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <style>
+		ul {
+			font-size: 90%;
+		}
+
+		label {
+			display: inline-block;
+			padding-left: none;
+			text-align: left;
+		}
+		input, textarea {
+			font-size: 1em;
+			box-sizing: border-box;
+			border: 1px solid #999;
+		}
+		textarea {
+			vertical-align: top;
+			height: 5em;
+		}
+
+		.names {
+			margin-left: 20%;
+			margin-right: 10%;
+		}
+		.nameInput {
+			width: 50%;
+		}
+		.nameLabel {
+			width: 140px;
+			text-align: right;
+		}
+		.optionLabel {
+			font-size: 90%;
+		}
+
+		.title {
+			background-color: transparent;
+			border: none;
+			padding: 0;
+			font-size: 150%;
+		}
+		.title:active {
+			color: #1E3F10;
+		}
+
+		.preview {
+			border-style: dotted;
+			border-width: 1px;
+			padding: 5px;
+			font-family: monospace;
+		}
+
+		.dlButton {
+			background-color: #EEE;
+			font-size: 100%;
+			border: 1px solid #888;
+			border-radius: 5px;
+			padding: 5px 10px;
+			color: #1E3F10;
+		}
+		.dlButton:active{
+			background-color: #DDD;
+			border-color: #777;
+			color: #1E3F10;
+		}
+  </style>
+  <body>
+    <h1>UTAU Voicebank Terms of Use Generator</h1>
+    <br>
+
+		<div class="names">
+			<p><label class="nameLabel" for="vbName">Voicebank name:</label>
+			<input class="nameInput" type="text" id="vbName"></p>
+			<p><label class="nameLabel" for="authorName">Author name:</label>
+			<input class="nameInput" type="text" id="authorName"></p>
+			<p><label class="nameLabel" for="authorContact">Author contact info:</label>
+			<textarea class="nameInput" id="authorContact" placeholder="email, twitter, etc."></textarea>
+			</p>
+		</div>
+
+    <!-- Show/hide sections -->
+		<script>
+      function showHide(sectionName, sectionTitle) {
+				var section = document.getElementById(sectionName);
+				if (section.style.display == "none"){
+					section.style.display = "block";
+          sectionTitle.innerHTML =  "∧ " + sectionTitle.innerHTML.substr(2);
+				}else{
+					section.style.display = "none";
+          sectionTitle.innerHTML = "∨ " + sectionTitle.innerHTML.substr(2);
+				}
+			}
+		</script>
+
+		<p><button class="title" onclick="showHide('attrib', this)">∨ Attribution</button></p>
+		<div style="display:none;" id="attrib">
+			<p style="font-size: 90%;">Does the user need to specify which voicebank was used and who made it?</p>
+      <br>
+			<p>Attributing voicebank name</p>
+			<p>
+				<input type="radio" id="attribVbYes" name="attribVb">
+				<label class="optionLabel" for="attribVbYes">Always Required</label>
+				<br>
+				<input type="radio" id="attribVbNo" name="attribVb">
+				<label class="optionLabel" for="attribVbNo">Not Required</label>
+			</p>
+      <br>
+			<p>Attributing author name</p>
+			<p>
+				<input type="radio" id="attribAuthYes" name="attribAuth">
+				<label class="optionLabel" for="attribAuthYes">Always Required</label>
+				<br>
+				<input type="radio" id="attribAuthNo" name="attribAuth">
+				<label class="optionLabel" for="attribAuthNo">Not Required</label>
+			</p>
+      <br>
+		</div>
+
+		<p><button class="title" onclick="showHide('usage', this)">∨ Usage Content</button></p>
+		<div style="display: none;" id="usage">
+			<p style="font-size: 90%;">What types of content are allowed?</p>
+      <br>
+      <p>Sexual content</p>
+      <p>
+        <input type="radio" id="sexNo" name="sex">
+        <label class="optionLabel" for="sexNo">Prohibited</label>
+        <br>
+        <input type="radio" id="sexPerm" name="sex">
+        <label class="optionLabel" for="sexPerm">With author permission</label>
+        <br>
+        <input type="radio" id="sexYes" name="sex">
+        <label class="optionLabel" for="sexYes">Allowed</label>
+      </p>
+      <br>
+      <p>Violent content</p>
+      <p>
+        <input type="radio" id="violentNo" name="violent">
+        <label class="optionLabel" for="violentNo">Prohibited</label>
+        <br>
+        <input type="radio" id="violentPerm" name="violent">
+        <label class="optionLabel" for="violentPerm">With author permission</label>
+        <br>
+        <input type="radio" id="violentYes" name="violent">
+        <label class="optionLabel" for="violentYes">Allowed</label>
+      </p>
+      <br>
+      <p>Political content</p>
+      <p>
+        <input type="radio" id="polNo" name="pol">
+        <label class="optionLabel" for="polNo">Prohibited</label>
+        <br>
+        <input type="radio" id="polPerm" name="pol">
+        <label class="optionLabel" for="polPerm">With author permission</label>
+        <br>
+        <input type="radio" id="polYes" name="pol">
+        <label class="optionLabel" for="polYes">Allowed</label>
+      </p>
+      <br>
+      <p>Religious content</p>
+      <p>
+        <input type="radio" id="relNo" name="rel">
+        <label class="optionLabel" for="relNo">Prohibited</label>
+        <br>
+        <input type="radio" id="relPerm" name="rel">
+        <label class="optionLabel" for="relPerm">With author permission</label>
+        <br>
+        <input type="radio" id="relYes" name="rel">
+        <label class="optionLabel" for="relYes">Allowed</label>
+      </p>
+      <br>
+			<p>The following are prohibited in all voicebanks:</p>
+			<ul>
+				<li>Criminal or illegal content</li>
+				<li>Explicit underage sexual content</li>
+				<li>Bigotry and hateful content</li>
+				<li>Violations of UTAU's Usage Policy</li>
+			</ul>
+      <br>
+		</div>
+
+		<p><button class="title" onclick="showHide('commercial', this)">∨ Commercial Use</button></p>
+		<div style="display: none;" id="commercial">
+			<p style="font-size: 90%;">Can users earn money using this voicebank?</p>
+      <br>
+			<p>
+        <input type="radio" id="commercialNo" name="commercialOpt" onclick="commercialOptEnable()">
+        <label class="optionLabel" for="commercialNo">No commercial work</label>
+				<br>
+				<input type="radio" id="commercialPerm" name="commercialOpt" onclick="commercialOptEnable()">
+				<label class="optionLabel" for="commercialPerm">Contact the author for case-by-case approval</label>
+        <br>
+				<input type="radio" id="commercialPurchase" name="commercialOpt" onclick="commercialOptEnable()">
+				<label class="optionLabel" for="commercialPurchase">Purchasable commercial usage license</label>
+        <br>
+				<span style="margin-left: 55px;">
+					<label class="optionLabel" for="commercialPurchaseLink">Commercial license purchase link: </label>
+					<input disabled type="url" id="commercialPurchaseLink">
+				</span>
+				<br>
+				<input type="radio" id="commercialYes" name="commercialOpt" onclick="commercialOptEnable()">
+				<label class="optionLabel" for="commercialYes">Free without permission</label>
+        <br>
+        <span style="margin-left: 30px;">
+					<input disabled type="radio" id="commercialYesLimit" name="commercialYesOpt" onclick="commercialOptEnable()">
+					<label class="optionLabel" for="commercialYesLimit">Expected profit up to $<input disabled type="number" id="commercialLimit" style="width: 50px;"> only</label>
+        </span>
+				<br>
+        <span style="margin-left: 30px;">
+					<input disabled type="radio" id="commercialYesAll" name="commercialYesOpt" onclick="commercialOptEnable()">
+					<label class="optionLabel" for="commercialYesAll">All commercial work</label>
+				</span>
+			</p>
+      <br>
+
+      <script>
+        // Enable/disable commercial usage suboptions
+        function commercialOptEnable(){
+          if (commercialYes.checked){
+            commercialYesLimit.disabled = false;
+            commercialYesAll.disabled = false;
+            if (commercialYesLimit.checked){
+              commercialLimit.disabled = false;
+            }else{
+              commercialLimitBox.disabled = true;
+              commercialLimitBox.value = "";
+            }
+          }else{
+            commercialYesLimit.disabled = true;
+            commercialYesLimit.checked = false;
+            commercialYesAll.disabled = true;
+            commercialYesAll.checked = false;
+            commercialLimitBox.disabled = true;
+            commercialLimitBox.value = "";
+          }
+
+          if (commercialPurchase.checked){
+            commercialPurchaseLinkBox.disabled = false;
+          }else{
+            commercialPurchaseLinkBox.disabled = true;
+            commercialPurchaseLinkBox.value = "";
+          }
+        }
+      </script>
+		</div>
+
+		<p><button class="title" onclick="showHide('edit', this)">∨ Editing</button></p>
+		<div style="display: none;" id="edit">
+			<p style="font-size: 90%;">How can this voicebank be edited?</p>
+      <br>
+			<p>Audio files</p>
+			<p>
+				<input type="radio" id="editAudioNo" name="editAudio">
+				<label class="optionLabel" for="editAudioNo">No editing</label>
+				<br>
+				<input type="radio" id="editAudioClean" name="editAudio">
+				<label class="optionLabel" for="editAudioClean">No editing except sample cleaning</label>
+				<br>
+				<input type="radio" id="editAudioPitch" name="editAudio">
+				<label class="optionLabel" for="editAudioPitch">All editing permitted except pitch/formant</label>
+				<br>
+				<input type="radio" id="editAudioYes" name="editAudio">
+				<label class="optionLabel" for="editAudioYes">All editing permitted</label>
+			</p>
+      <br>
+			<p>Configuration files <span style="font-size: 80%;">(Such as OTO.ini, desc.mrq, and .frq)</span></p>
+			<p>
+				<input type="radio" id="editConfigNo" name="editConfig">
+				<label class="optionLabel" for="editConfigNo">No editing</label>
+				<br>
+				<input type="radio" id="editConfigYes" name="editConfig">
+				<label class="optionLabel" for="editConfigYes">Editing permitted</label>
+			</p>
+      <br>
+		</div>
+
+		<p><button class="title" onclick="showHide('redist', this)">∨ Redistribution</button></p>
+		<div style="display: none;" id="redist">
+			<p style="font-size: 90%;">Can this voicebank or parts of it be shared with other users?</p>
+      <br>
+			<p>Voicebank</p>
+        <p style="font-size: 90%; margin-left: 25px;">Before discontinuation</p>
+				<input type="radio" id="shareVbBeforeNo" name="shareVbBefore">
+				<label class="optionLabel" for="shareVbBeforeNo">No sharing</label>
+				<br>
+				<input type="radio" id="shareVbBeforeUnedit" name="shareVbBefore">
+				<label class="optionLabel" for="shareVbBeforeUnedit">Unedited voicebank only</label>
+				<br>
+				<input type="radio" id="shareVbBeforeConfig" name="shareVbBefore">
+				<label class="optionLabel" for="shareVbBeforeConfig">Configuration files only</label>
+				<br>
+				<input type="radio" id="shareVbBeforeYes" name="shareVbBefore">
+				<label class="optionLabel" for="shareVbBeforeYes">All sharing permitted</label>
+        <br>
+        <br>
+        <p style="font-size: 90%; margin-left: 25px;">After discontinuation</p>
+        <input type="radio" id="shareVbAfterNo" name="shareVbAfter">
+        <label class="optionLabel" for="shareVbAfterNo">No sharing</label>
+        <br>
+        <input type="radio" id="shareVbAfterUnedit" name="shareVbAfter">
+        <label class="optionLabel" for="shareVbAfterUnedit">Unedited voicebank only</label>
+        <br>
+        <input type="radio" id="shareVbAfterConfig" name="shareVbAfter">
+        <label class="optionLabel" for="shareVbAfterConfig">Configuration files only</label>
+        <br>
+        <input type="radio" id="shareVbAfterYes" name="shareVbAfter">
+        <label class="optionLabel" for="shareVbAfterYes">All sharing permitted</label>
+			</p>
+      <br>
+			<p>Rendered vocals</p>
+			<p>
+				<input type="radio" id="shareRenderNo" name="shareRender">
+				<label class="optionLabel" for="shareRenderNo">No sharing</label>
+				<br>
+				<input type="radio" id="shareRenderYes" name="shareRender">
+				<label class="optionLabel" for="shareRenderYes">Sharing permitted</label>
+			</p>
+      <br>
+		</div>
+
+		<p class="title">Preview</p>
+		<div class="preview" id="preview"></div>
+		<p style="text-align: center;"><a download="readme.txt" id="download" onclick="dlReadme()"><button class="dlButton">Download readme.txt</button></a></p>
+  </body>
+  <script>
+    // Swaps out various sections of readmeArr with parts from the readme options object based on which buttons are selected
+    function genReadme(){
+      readmeArr[0] = String(vbName.value);
+      readmeArr[1] = "by " + String(authorName.value);
+      readmeArr[2] = "\n" + String(authorContact.value) + "\n";
+      if (attribVbYes.checked){
+        readmeArr[5] = readmeOpt.attrib.vbYes;
+      }
+      else if (attribVbNo.checked){
+        readmeArr[5] = readmeOpt.attrib.vbNo;
+      }
+      if (attribAuthYes.checked){
+        readmeArr[6] = readmeOpt.attrib.authorYes;
+      }
+      else if (attribAuthNo.checked){
+        readmeArr[6] = readmeOpt.attrib.authorNo;
+      }
+
+      if (sexNo.checked) {
+        readmeArr[9] = readmeOpt.usage.sex.no;
+      }
+      else if (sexPerm.checked) {
+        readmeArr[9] = readmeOpt.usage.sex.perm;
+      }
+      else if (sexYes.checked) {
+        readmeArr[9] = readmeOpt.usage.sex.yes;
+      }
+      if (violentNo.checked) {
+        readmeArr[10] = readmeOpt.usage.violent.no;
+      }
+      else if (violentPerm.checked) {
+        readmeArr[10] = readmeOpt.usage.violent.perm;
+      }
+      else if (violentYes.checked) {
+        readmeArr[10] = readmeOpt.usage.violent.yes;
+      }
+      if(polNo.checked){
+        readmeArr[11] = readmeOpt.usage.pol.no;
+      }
+      else if (polPerm.checked) {
+        readmeArr[11] = readmeOpt.usage.pol.perm;
+      }
+      else if (polYes.checked) {
+        readmeArr[11] = readmeOpt.usage.pol.yes;
+      }
+      if(relNo.checked){
+        readmeArr[12] = readmeOpt.usage.rel.no;
+      }
+      else if (relPerm.checked) {
+        readmeArr[12] = readmeOpt.usage.rel.perm;
+      }
+      else if (relYes.checked) {
+        readmeArr[12] = readmeOpt.usage.rel.yes;
+      }
+
+      if(commercialNo.checked){
+        readmeArr[18] = readmeOpt.commercial.no;
+      }
+      else if (commercialPerm.checked) {
+        readmeArr[18] = readmeOpt.commercial.perm;
+      }
+      else if (commercialPurchase.checked) {
+        readmeArr[18] = readmeOpt.commercial.purchase + String(commercialPurchaseLink.value);
+      }
+      else if (commercialYes.checked) {
+        if (commercialYesLimit.checked){
+          readmeArr[18] = readmeOpt.commercial.limit + String(commercialLimitBox.value) + ".";
+        }
+        else if (commercialYesAll.checked) {
+          readmeArr[18] = readmeOpt.commercial.yes;
+        }
+      }
+
+      if(editAudioNo.checked){
+        readmeArr[20] = readmeOpt.editing.audioNo;
+      }
+      else if (editAudioClean.checked) {
+        readmeArr[20] = readmeOpt.editing.audioClean;
+      }
+      else if (editAudioPitch.checked) {
+        readmeArr[20] = readmeOpt.editing.audioPitch;
+      }
+      else if (editAudioYes.checked) {
+        readmeArr[20] = readmeOpt.editing.audioYes;
+      }
+      if (editConfigNo.checked) {
+        readmeArr[21] = readmeOpt.editing.configNo;
+      }
+      else if (editConfigYes.checked) {
+        readmeArr[21] = readmeOpt.editing.configYes;
+      }
+
+      if(shareVbBeforeNo.checked){
+        readmeArr[23] = readmeOpt.redist.before.no;
+      }
+      else if (shareVbBeforeUnedit.checked) {
+        readmeArr[23] = readmeOpt.redist.before.unedit;
+      }
+      else if (shareVbBeforeConfig.checked) {
+        readmeArr[23] = readmeOpt.redist.before.config;
+      }
+      else if (shareVbBeforeYes.checked) {
+        readmeArr[23] = readmeOpt.redist.before.yes;
+      }
+      if (shareVbAfterNo.checked) {
+        readmeArr[24] = readmeOpt.redist.after.no;
+      }
+      else if (shareVbAfterUnedit.checked) {
+        readmeArr[24] = readmeOpt.redist.after.unedit;
+      }
+      else if (shareVbAfterConfig.checked) {
+        readmeArr[24] = readmeOpt.redist.after.config;
+      }
+      else if (shareVbAfterYes.checked) {
+        readmeArr[24] = readmeOpt.redist.after.yes;
+      }
+      if (shareRenderNo.checked) {
+        readmeArr[25] = readmeOpt.redist.render.no;
+      }
+      else if (shareRenderYes.checked) {
+        readmeArr[25] = readmeOpt.redist.render.yes;
+      }
+
+      var previewBox = document.getElementById('preview');
+      var readmeText = "";
+      for (var i = 0; i < readmeArr.length; i++){
+        if (readmeArr[i] != ""){
+          readmeText += readmeArr[i] + "\r\n";
+        }
+      }
+      previewBox.innerText = readmeText;
+    }
+
+    // Puts the readme array together and makes the download button point to the generated text file
+    function dlReadme(){
+      var readmeText = "";
+      for (var i = 0; i < readmeArr.length; i++){
+        if (readmeArr[i] != ""){
+          readmeText += readmeArr[i] + "\r\n";
+        }
+      }
+      document.getElementById('download').href = makeTextFile(readmeText);
+    }
+
+    // Converts an array of text to a blob, which becomes a text file
+    function makeTextFile (text) {
+      var data = new Blob([text], {type: 'text/plain'});
+      var textFile = window.URL.createObjectURL(data);
+      return textFile;
+    }
+
+    var readmeArr = [
+      "Voicebank name", //0
+      "by Author name", //1
+      "author contact info", //2
+      "Voicebank Terms of Use", //3
+      "\r\nAttribution", //4
+        "(voicebank attribution)", //5
+        "(author attribution clause)", //6
+        "When attributing the name or author of this voicebank, you must write the names exactly as written above. You cannot call the voicebank by any other name, nor can you attribute the voicebank to any other author.", //7
+      "\r\nUsage Content", //8
+        "(sexual content)", //9
+        "(violent content)", //10
+        "(political content)", //11
+        "(religious content)", //12
+        "The following types of content are unconditionally prohibited:", //13
+        "- Criminal or illegal content", //14
+        "- Explicit underage sexual content", //15
+        "- Bigotry and hateful content", //16
+      "\r\nCommercial Use", //17
+        "(commercial usage)", //18
+      "\r\nEditing", //19
+        "(audio file editing)", //20
+        "(configuration editing)", //21
+      "\r\nRedistribution", //22
+        "(voicebank redistribution before discontinuation)", //23
+        "(voicebank redistribution after discontinuation)", //24
+        "(audio render redistribution)", //25
+      "\r\nGenerated with http://tubs.moe/misc/vbtougen.html"
+      ];
+
+    var readmeOpt = {
+      attrib: {
+        vbYes: "When publishing work using this voicebank, you are required to state the name of this voicebank.",
+        vbNo: "When publishing work using this voicebank, it is not necessary to state the name of this voicebank.",
+        authorYes: "You are required to state the name of this voicebank's author.",
+        authorNo: "It is not necessary to state the name of this voicebank's author."
+      },
+      usage: {
+        sex: {
+          no: "Do not create sexual content.",
+          perm: "Seek author permission to create sexual content.",
+          yes: "You are free to create sexual content."
+        },
+        violent: {
+          no: "Do not create violent content.",
+          perm: "Seek author permission to create violent content.",
+          yes: "You are free to create violent content."
+        },
+        pol: {
+          no: "Do not create political content.",
+          perm: "Seek author permission to create political content.",
+          yes: "You are free to create political content."
+        },
+        rel: {
+          no: "Do not create religious content.",
+          perm: "Seek author permission to create religious content.",
+          yes: "You are free to create religious content."
+        }
+      },
+      commercial: {
+        no: "You cannot use this voicebank commercially. All usage of this voicebank must be strictly non-commercial.",
+        perm: "Contact the author for individual approval to use this voicebank commercially.",
+        purchase: "Purchase a commercial usage license at ",
+        limit: "You may use this voicebank commercially if the expected profit is less than or equal to $",
+        yes: "You are free to use this voicebank commercially."
+      },
+      editing: {
+        audioNo: "You cannot edit this voicebank's audio files.",
+        audioClean: "You are only permitted to clean or enhance this voicebank's audio. You cannot edit the audio in any other way.",
+        audioPitch: "You can edit this voicebank's audio in any way, except for pitch or formant manipulation.",
+        audioYes: "You are free to edit the audio files of this voicebank in any way.",
+        configNo: "You cannot edit any configuration files, such as oto.ini or FRQ files.",
+        configYes: "You are free to edit any configuration files, such as oto.ini or FRQ files."
+      },
+      redist: {
+        before: {
+          no: "Before this voicebank is discontinued, you cannot redistribute it.",
+          unedit: "Before this voicebank is discontinued, you may only redistribute this voicebank in its entirety, without any changes, with correct attribution of the voicebank name and author.",
+          config: "Before this voicebank is discontinued, you may only share configuration files, such as oto.ini or FRQ files.",
+          yes: "Before this voicebank is discontinued, you are free to redistribute part or whole of this voicebank in any way, with or without edits, as long as you correctly attribute the voicebank name and author, and clearly state any changes you have made."
+        },
+        after: {
+          no: "After this voicebank is discontinued, you cannot redistribute it.",
+          unedit: "After this voicebank is discontinued, you may only redistribute this voicebank in its entirety, without any changes, with correct attribution of the voicebank name and author.",
+          config: "After this voicebank is discontinued, you may only share configuration files, such as oto.ini or FRQ files.",
+          yes: "After this voicebank is discontinued, you are free to redistribute part or whole of this voicebank in any way, with or without edits, as long as you correctly attribute the voicebank name and author, and clearly state any changes you have made."
+        },
+        render: {
+          no: "You cannot share rendered singing vocals created with this voicebank.",
+          yes: "You are free to share rendered singing vocals created with this voicebank."
+        }
+      }
+    }
+
+    // Grabbing all of the buttons and stuff as variables
+    var vbName = document.getElementById('vbName');
+    var authorName = document.getElementById('authorName');
+    var authorContact = document.getElementById('authorContact');
+
+    var attribVbYes = document.getElementById('attribVbYes');
+    var attribVbNo = document.getElementById('attribVbNo');
+    var attribAuthYes = document.getElementById('attribAuthYes');
+    var attribAuthNo = document.getElementById('attribAuthNo');
+
+    var sexNo = document.getElementById('sexNo');
+    var sexPerm = document.getElementById('sexPerm');
+    var sexYes = document.getElementById('sexYes');
+    var violentNo = document.getElementById('violentNo');
+    var violentPerm = document.getElementById('violentPerm');
+    var violentYes = document.getElementById('violentYes');
+    var polNo = document.getElementById('polNo');
+    var polPerm = document.getElementById('polPerm');
+    var polYes = document.getElementById('polYes');
+    var relNo = document.getElementById('relNo');
+    var relPerm = document.getElementById('relPerm');
+    var relYes = document.getElementById('relYes');
+
+    var commercialNo = document.getElementById('commercialNo');
+    var commercialPerm = document.getElementById('commercialPerm');
+    var commercialPurchase = document.getElementById('commercialPurchase');
+    var commercialPurchaseLinkBox = document.getElementById('commercialPurchaseLink');
+    var commercialYes = document.getElementById('commercialYes');
+    var commercialYesLimit = document.getElementById('commercialYesLimit');
+    var commercialLimitBox = document.getElementById('commercialLimit');
+    var commercialYesAll = document.getElementById('commercialYesAll');
+
+    var editAudioNo = document.getElementById('editAudioNo');
+    var editAudioClean = document.getElementById('editAudioClean');
+    var editAudioPitch = document.getElementById('editAudioPitch');
+    var editAudioYes = document.getElementById('editAudioYes');
+    var editConfigNo = document.getElementById('editConfigNo');
+    var editConfigYes = document.getElementById('editConfigYes');
+
+    var shareVbBeforeNo = document.getElementById('shareVbBeforeNo');
+    var shareVbBeforeUnedit = document.getElementById('shareVbBeforeUnedit');
+    var shareVbBeforeConfig = document.getElementById('shareVbBeforeConfig');
+    var shareVbBeforeYes = document.getElementById('shareVbBeforeYes');
+    var shareVbAfterNo = document.getElementById('shareVbAfterNo');
+    var shareVbAfterUnedit = document.getElementById('shareVbAfterUnedit');
+    var shareVbAfterConfig = document.getElementById('shareVbAfterConfig');
+    var shareVbAfterYes = document.getElementById('shareVbAfterYes');
+    var shareRenderNo = document.getElementById('shareRenderNo');
+    var shareRenderYes = document.getElementById('shareRenderYes');
+
+    // Updates the readme whenever anything is changed
+    vbName.oninput
+    = authorName.oninput
+    = authorContact.oninput
+    = attribVbYes.onchange
+    = attribVbNo.onchange
+    = attribAuthYes.onchange
+    = attribAuthNo.onchange
+    = sexNo.onchange
+    = sexPerm.onchange
+    = sexYes.onchange
+    = violentNo.onchange
+    = violentPerm.onchange
+    = violentYes.onchange
+    = polNo.onchange
+    = polPerm.onchange
+    = polYes.onchange
+    = relNo.onchange
+    = relPerm.onchange
+    = relYes.onchange
+    = commercialNo.onchange
+    = commercialPerm.onchange
+    = commercialPurchase.onchange
+    = commercialPurchaseLink.oninput
+    = commercialYes.onchange
+    = commercialYesLimit.onchange
+    = commercialLimitBox.oninput
+    = commercialYesAll.onchange
+    = editAudioNo.onchange
+    = editAudioClean.onchange
+    = editAudioPitch.onchange
+    = editAudioYes.onchange
+    = editConfigNo.onchange
+    = editConfigYes.onchange
+    = shareVbBeforeNo.onchange
+    = shareVbBeforeUnedit.onchange
+    = shareVbBeforeConfig.onchange
+    = shareVbBeforeYes.onchange
+    = shareVbAfterNo.onchange
+    = shareVbAfterUnedit.onchange
+    = shareVbAfterConfig.onchange
+    = shareVbAfterYes.onchange
+    = shareRenderNo.onchange
+    = shareRenderYes.onchange
+    = genReadme;
+  </script>
+</html>

@@ -74,7 +74,7 @@
   </style>
   <body>
     <h1>UTAU Voicebank Terms of Use Generator</h1>
-    <br>
+    <!-- <br> -->
 
 		<div class="names">
 			<p><label class="nameLabel" for="vbName">Voicebank name:</label>
@@ -103,7 +103,7 @@
 		<p><button class="title" onclick="showHide('attrib', this)">∨ Attribution</button></p>
 		<div style="display:none;" id="attrib">
 			<p style="font-size: 90%;">Does the user need to specify which voicebank was used and who made it?</p>
-      <br>
+      <!-- <br> -->
 			<p>Attributing voicebank name</p>
 			<p>
 				<input type="radio" id="attribVbYes" name="attribVb">
@@ -112,7 +112,7 @@
 				<input type="radio" id="attribVbNo" name="attribVb">
 				<label class="optionLabel" for="attribVbNo">Not Required</label>
 			</p>
-      <br>
+      <!-- <br> -->
 			<p>Attributing author name</p>
 			<p>
 				<input type="radio" id="attribAuthYes" name="attribAuth">
@@ -121,13 +121,13 @@
 				<input type="radio" id="attribAuthNo" name="attribAuth">
 				<label class="optionLabel" for="attribAuthNo">Not Required</label>
 			</p>
-      <br>
+      <!-- <br> -->
 		</div>
 
 		<p><button class="title" onclick="showHide('usage', this)">∨ Usage Content</button></p>
 		<div style="display: none;" id="usage">
 			<p style="font-size: 90%;">What types of content are allowed?</p>
-      <br>
+      <!-- <br> -->
       <p>Sexual content</p>
       <p>
         <input type="radio" id="sexNo" name="sex">
@@ -139,7 +139,7 @@
         <input type="radio" id="sexYes" name="sex">
         <label class="optionLabel" for="sexYes">Allowed</label>
       </p>
-      <br>
+      <!-- <br> -->
       <p>Violent content</p>
       <p>
         <input type="radio" id="violentNo" name="violent">
@@ -151,7 +151,7 @@
         <input type="radio" id="violentYes" name="violent">
         <label class="optionLabel" for="violentYes">Allowed</label>
       </p>
-      <br>
+      <!-- <br> -->
       <p>Political content</p>
       <p>
         <input type="radio" id="polNo" name="pol">
@@ -163,7 +163,7 @@
         <input type="radio" id="polYes" name="pol">
         <label class="optionLabel" for="polYes">Allowed</label>
       </p>
-      <br>
+      <!-- <br> -->
       <p>Religious content</p>
       <p>
         <input type="radio" id="relNo" name="rel">
@@ -175,7 +175,7 @@
         <input type="radio" id="relYes" name="rel">
         <label class="optionLabel" for="relYes">Allowed</label>
       </p>
-      <br>
+      <!-- <br> -->
 			<p>The following are prohibited in all voicebanks:</p>
 			<ul>
 				<li>Criminal or illegal content</li>
@@ -183,13 +183,13 @@
 				<li>Bigotry and hateful content</li>
 				<li>Violations of UTAU's Usage Policy</li>
 			</ul>
-      <br>
+      <!-- <br> -->
 		</div>
 
 		<p><button class="title" onclick="showHide('commercial', this)">∨ Commercial Use</button></p>
 		<div style="display: none;" id="commercial">
 			<p style="font-size: 90%;">Can users earn money using this voicebank?</p>
-      <br>
+      <!-- <br> -->
 			<p>
         <input type="radio" id="commercialNo" name="commercialOpt" onclick="commercialOptEnable()">
         <label class="optionLabel" for="commercialNo">No commercial work</label>
@@ -218,7 +218,7 @@
 					<label class="optionLabel" for="commercialYesAll">All commercial work</label>
 				</span>
 			</p>
-      <br>
+      <!-- <br> -->
 
       <script>
         // Enable/disable commercial usage suboptions
@@ -254,8 +254,8 @@
 		<p><button class="title" onclick="showHide('edit', this)">∨ Editing</button></p>
 		<div style="display: none;" id="edit">
 			<p style="font-size: 90%;">How can this voicebank be edited?</p>
-      <br>
-			<p>Audio files</p>
+      <!-- <br> -->
+			<p>Audio files for use in UTAU</p>
 			<p>
 				<input type="radio" id="editAudioNo" name="editAudio">
 				<label class="optionLabel" for="editAudioNo">No editing</label>
@@ -269,7 +269,7 @@
 				<input type="radio" id="editAudioYes" name="editAudio">
 				<label class="optionLabel" for="editAudioYes">All editing permitted</label>
 			</p>
-      <br>
+      <!-- <br> -->
 			<p>Configuration files <span style="font-size: 80%;">(Such as OTO.ini, desc.mrq, and .frq)</span></p>
 			<p>
 				<input type="radio" id="editConfigNo" name="editConfig">
@@ -278,13 +278,42 @@
 				<input type="radio" id="editConfigYes" name="editConfig">
 				<label class="optionLabel" for="editConfigYes">Editing permitted</label>
 			</p>
-      <br>
+      <!-- <br> -->
+      <p>Ports to other singing synthesizers</p>
+      <p>
+        <input type="radio" id="editPortNo" name="editPort">
+        <label class="optionLabel" for="editPortNo">Prohibited</label>
+        <br>
+        <input type="radio" id="editPortYes" name="editPort">
+        <label class="optionLabel" for="editPortYes">Allowed</label>
+      </p>
+      <p>Audio files used outside singing synthesizers <span style="font-size: 80%;">(music production, video production, etc.)</span></p>
+      <p>
+        <input type="radio" id="editProdNo" name="editProd" onclick="editProdOptEnable()">
+        <label class="optionLabel" for="editProdNo">Prohibited</label>
+        <br>
+        <input type="radio" id="editProdYesLimit" name="editProd" onclick="editProdOptEnable()">
+        <label class="optionLabel" for="editProdYesLimit">Usage of files in this folder only: <input disabled type="text" id="editProdLimit" style="width: 100px;"></label>
+        <br>
+        <input type="radio" id="editProdYes" name="editProd" onclick="editProdOptEnable()">
+        <label class="optionLabel" for="editProdYes">All usage outside UTAU permitted</label>
+      </p>
+      <script>
+        function editProdOptEnable(){
+          if (editProdYesLimit.checked){
+            editProdLimit.disabled=false;
+          }else{
+            editProdLimit.disabled=true;
+            editProdLimit.value="";
+          }
+        }
+      </script>
 		</div>
 
 		<p><button class="title" onclick="showHide('redist', this)">∨ Redistribution</button></p>
 		<div style="display: none;" id="redist">
 			<p style="font-size: 90%;">Can this voicebank or parts of it be shared with other users?</p>
-      <br>
+      <!-- <br> -->
 			<p>Voicebank</p>
         <p style="font-size: 90%; margin-left: 25px;">Before discontinuation</p>
 				<input type="radio" id="shareVbBeforeNo" name="shareVbBefore">
@@ -299,7 +328,7 @@
 				<input type="radio" id="shareVbBeforeYes" name="shareVbBefore">
 				<label class="optionLabel" for="shareVbBeforeYes">All sharing permitted</label>
         <br>
-        <br>
+        <!-- <br> -->
         <p style="font-size: 90%; margin-left: 25px;">After discontinuation</p>
         <input type="radio" id="shareVbAfterNo" name="shareVbAfter">
         <label class="optionLabel" for="shareVbAfterNo">No sharing</label>
@@ -313,7 +342,7 @@
         <input type="radio" id="shareVbAfterYes" name="shareVbAfter">
         <label class="optionLabel" for="shareVbAfterYes">All sharing permitted</label>
 			</p>
-      <br>
+      <!-- <br> -->
 			<p>Rendered vocals</p>
 			<p>
 				<input type="radio" id="shareRenderNo" name="shareRender">
@@ -322,7 +351,7 @@
 				<input type="radio" id="shareRenderYes" name="shareRender">
 				<label class="optionLabel" for="shareRenderYes">Sharing permitted</label>
 			</p>
-      <br>
+      <!-- <br> -->
 		</div>
 
 		<p class="title">Preview</p>
@@ -421,36 +450,51 @@
       else if (editConfigYes.checked) {
         readmeArr[21] = readmeOpt.editing.configYes;
       }
+      if (editPortNo.checked){
+        readmeArr[22] = readmeOpt.editing.portNo;
+      }
+      else if (editPortYes.checked){
+        readmeArr[22] = readmeOpt.editing.portYes;
+      }
+      if (editProdNo.checked){
+        readmeArr[23] = readmeOpt.editing.prodNo;
+      }
+      else if (editProdYesLimit.checked){
+        readmeArr[23] = readmeOpt.editing.prodYesLimit1 + String(editProdLimit.value) + readmeOpt.editing.prodYesLimit2;
+      }
+      else if (editProdYes.checked){
+        readmeArr[23] = readmeOpt.editing.prodYes;
+      }
 
       if(shareVbBeforeNo.checked){
-        readmeArr[23] = readmeOpt.redist.before.no;
+        readmeArr[25] = readmeOpt.redist.before.no;
       }
       else if (shareVbBeforeUnedit.checked) {
-        readmeArr[23] = readmeOpt.redist.before.unedit;
+        readmeArr[25] = readmeOpt.redist.before.unedit;
       }
       else if (shareVbBeforeConfig.checked) {
-        readmeArr[23] = readmeOpt.redist.before.config;
+        readmeArr[25] = readmeOpt.redist.before.config;
       }
       else if (shareVbBeforeYes.checked) {
-        readmeArr[23] = readmeOpt.redist.before.yes;
+        readmeArr[25] = readmeOpt.redist.before.yes;
       }
       if (shareVbAfterNo.checked) {
-        readmeArr[24] = readmeOpt.redist.after.no;
+        readmeArr[26] = readmeOpt.redist.after.no;
       }
       else if (shareVbAfterUnedit.checked) {
-        readmeArr[24] = readmeOpt.redist.after.unedit;
+        readmeArr[26] = readmeOpt.redist.after.unedit;
       }
       else if (shareVbAfterConfig.checked) {
-        readmeArr[24] = readmeOpt.redist.after.config;
+        readmeArr[26] = readmeOpt.redist.after.config;
       }
       else if (shareVbAfterYes.checked) {
-        readmeArr[24] = readmeOpt.redist.after.yes;
+        readmeArr[26] = readmeOpt.redist.after.yes;
       }
       if (shareRenderNo.checked) {
-        readmeArr[25] = readmeOpt.redist.render.no;
+        readmeArr[27] = readmeOpt.redist.render.no;
       }
       else if (shareRenderYes.checked) {
-        readmeArr[25] = readmeOpt.redist.render.yes;
+        readmeArr[27] = readmeOpt.redist.render.yes;
       }
 
       var previewBox = document.getElementById('preview');
@@ -504,10 +548,12 @@
       "\r\nEditing", //19
         "(audio file editing)", //20
         "(configuration editing)", //21
-      "\r\nRedistribution", //22
-        "(voicebank redistribution before discontinuation)", //23
-        "(voicebank redistribution after discontinuation)", //24
-        "(audio render redistribution)", //25
+        "(porting)", //22
+        "(use outside vocalsynth)", //23
+      "\r\nRedistribution", //24
+        "(voicebank redistribution before discontinuation)", //25
+        "(voicebank redistribution after discontinuation)", //26
+        "(audio render redistribution)", //27
       "\r\nGenerated with https://adlez27.github.io/vbtougen"
       ];
 
@@ -553,7 +599,13 @@
         audioPitch: "You can edit this voicebank's audio in any way, except for pitch or formant manipulation.",
         audioYes: "You are free to edit the audio files of this voicebank in any way.",
         configNo: "You cannot edit any configuration files, such as oto.ini or FRQ files.",
-        configYes: "You are free to edit any configuration files, such as oto.ini or FRQ files."
+        configYes: "You are free to edit any configuration files, such as oto.ini or FRQ files.",
+        portNo: "You cannot use this voicebank in any singing synthesizer other than UTAU.",
+        portYes: "You are free to port this voicebank to singing synthesizers other than UTAU.",
+        prodNo: "The source audio of this voicebank can only be used in permitted singing synthesizers. You cannot use it in any other way, such as for music production or video production.",
+        prodYesLimit1: "The source audio of this voicebank can only be used in permitted singing synthesizers. However, you are free to use audio from the \"",
+        prodYesLimit2: "\" folder in other ways, such as for music production or video production.",
+        prodYes: "You are permitted to use the source audio of this voicebank outside of singing synthesizers, such as for music production or video production."
       },
       redist: {
         before: {
@@ -613,6 +665,12 @@
     var editAudioYes = document.getElementById('editAudioYes');
     var editConfigNo = document.getElementById('editConfigNo');
     var editConfigYes = document.getElementById('editConfigYes');
+    var editPortNo = document.getElementById('editPortNo');
+    var editPortYes = document.getElementById('editPortYes');
+    var editProdNo = document.getElementById('editProdNo');
+    var editProdYesLimit = document.getElementById('editProdYesLimit');
+    var editProdLimit = document.getElementById('editProdLimit');
+    var editProdYes = document.getElementById('editProdYes');
 
     var shareVbBeforeNo = document.getElementById('shareVbBeforeNo');
     var shareVbBeforeUnedit = document.getElementById('shareVbBeforeUnedit');
@@ -659,6 +717,12 @@
     = editAudioYes.onchange
     = editConfigNo.onchange
     = editConfigYes.onchange
+    = editPortNo.onchange
+    = editPortYes.onchange
+    = editProdNo.onchange
+    = editProdYesLimit.onchange
+    = editProdLimit.oninput
+    = editProdYes.onchange
     = shareVbBeforeNo.onchange
     = shareVbBeforeUnedit.onchange
     = shareVbBeforeConfig.onchange
